@@ -37,7 +37,8 @@ URL:      http://natas3.natas.labs.overthewire.org
 
 While inspecting you will be getting a message saying "Not even google will find it this time".
 Go with changing the path to _robots.txt_ and hence you will get a path _/s3cr3t/_, navigate to it.
-You will get a file named _User.txt_, and you will get the password for the next level.
+You will get a file named _users.txt_, and you will get the password for the next level.
+The final path would be like: _http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt_
 
 ## Natas 4
 Username: natas4
