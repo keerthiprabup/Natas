@@ -50,7 +50,7 @@ The final path would be like: _http://natas3.natas.labs.overthewire.org/s3cr3t/u
 ## Natas 4
 Username: natas4
 Password: tKOcJIbzM4lTs8hbCmzn5Zr4434fGZQm
-URL:      http://natas3.natas.labs.overthewire.org
+URL:      http://natas4.natas.labs.overthewire.org
 
 Here the website mentioned that the website _http://natas5.natas.labs.overthewire.org/_ should refer the login of the natas4 site to get the website.
 
@@ -64,3 +64,7 @@ Swipe on to the browser.
 
 Hurray!! we got the pass.
 
+## Natas 5
+Username: natas5
+Password: Z0NsrtIkJoKALBCLi5eqFfcRN82Au2oD
+URL:      http://natas5.natas.labs.overthewire.org
