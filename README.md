@@ -16,7 +16,8 @@ URL:      http://natas1.natas.labs.overthewire.org
 Open terminal and use _curl_ _-u_ _natas1:g9D9cREhslqBKtcA2uocGHPfMZVzeFK6_ _http://natas1.natas.labs.overthewire.org/_ command to get the html code of the website.
 The HTML code I get is as follows:
 
-<<html>
+<p>
+<html>
 <<head>
 <!-- This stuff in the header has nothing to do with the level -->
 <link rel="stylesheet" type="text/css" href="http://natas.labs.overthewire.org/css/level.css">
@@ -36,4 +37,4 @@ next level on this page, but rightclicking has been blocked!
 </div>
 </body>
 </html>
-
+</p>
