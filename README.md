@@ -229,4 +229,10 @@ Also we can see condition $query,$link value greater than zero excecutes the suc
 So let's try this username in the username bar
 keerthi" or 1=1 #
 
-where I commented after getting the true value to avoid unwanted stuffs
+where I commented after getting the true value to avoid unwanted stuffs.
+
+We got the pass!!
+
+## Natas 15
+Username: natas15
+Password: TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB
