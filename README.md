@@ -218,3 +218,15 @@ After changing the hex value will result in password!!
 ## Natas 14
 Username: natas14
 Password: qPazSJBmrmU7UQJv17MHk1PGC4DxZMEP
+URL:      http://natas14.natas.labs.overthewire.org
+
+This level is basically doing with sql injection.
+
+After analyzing the source code inthe website, the variable $Query has the user and password credential that has been enterrred by the user.
+In that there '"' mentioned in both username and the password.
+Also we can see condition $query,$link value greater than zero excecutes the successful login.
+
+So let's try this username in the username bar
+keerthi" or 1=1 #
+
+where I commented after getting the true value to avoid unwanted stuffs
