@@ -68,3 +68,106 @@ Hurray!! we got the pass.
 Username: natas5
 Password: Z0NsrtIkJoKALBCLi5eqFfcRN82Au2oD
 URL:      http://natas5.natas.labs.overthewire.org
+
+The website mentions like that we are not logged in!
+
+Inspect the page and go to the cookies option availble at applications.
+
+There you can see that the loggedin value is 0, change it into 1 and refresh the page.
+
+We got the pass!!
+
+## Natas 6
+Username: natas6
+Password: fOIvE0MDtPTgRhqmmvvAOt2EfXR6uQgR
+URL:      http://natas6.natas.labs.overthewire.org
+
+We could see a input bar in this website;
+
+Inspect the page, you will note this _/includes/secret.inc_ in it.
+
+Add the path to the browser.
+
+You will get a string $secret = "FOEIUWGHFEEUHOFUOIU"- it is the thing we need to search in the web page.
+
+We got the pass!!
+
+## Natas 7
+
+Username: natas7
+Password: jmxSiH3SP6Sonf8dv66ng8v1cIEdjXWr
+URL:      http://natas7.natas.labs.overthewire.org
+
+We got a hint by inspecting the website:
+<!-- hint: password for webuser natas8 is in /etc/natas_webpass/natas8 -->
+
+Update the path as: _http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8_
+
+Hurray!! We got the pass.
+
+## Natas 8
+Username: natas8
+Password: a6bZCNYwdKqN5cGP11ZdtPg0iImQQhAB
+URL:      http://natas8.natas.labs.overthewire.org
+
+We got from the source code that:
+$encodedSecret = "3d3d516343746d4d6d6c315669563362"
+
+And the type of encoding is specified as:
+bin2hex(strrev(base64_encode($secret)))
+
+So we need to decrypt the encoded value in the reverse way as decode hex, reverse the string and decode the base64 string.
+
+Input the resultant string in the secret input bar and we will find the pass.
+
+## Natas 9
+Username: natas9
+Password: Sda6t0vkOPkM8YeOZkAGVhFoaplvlJFd
+URL:      http://natas9.natas.labs.overthewire.org
+
+I could see the source code is excecuting command in its program like grep.
+
+So let us try cat command in the search bar to view the passwd file with the commad: _;cat_ _/etc/natas_webpass/natas10_
+
+Hurray!! We got the pass.
+
+## Natas 10
+Username: natas10
+Password: D44EcsFkLxPIkAAKLosx8z3hxX1Z4MCE
+URL:      http://natas10.natas.labs.overthewire.org
+
+This one is likely as such as the previous one but it is mentioned that in the source code to not to use '/[;|&]/'
+
+So we try it with the command: .* cat /etc/natas_webpass/natas11 #
+
+And it worked!!
+
+## Natas 11
+Username: natas11
+Password: 1KFqoJXi6hRaPluAmk8ESDW4fSysRoIg
+URL:      http://natas11.natas.labs.overthewire.org
+
+We get that the cookies were encryted using xor cipher and the algorithm of the encryption was mentioned in the source code.
+
+The encrypted cookie can be found at the application->cookie options in the inspect option.
+The code for decrypting the key:
+<?php  
+  
+$cookie = "MGw7JCQ5OC04PT8jOSpqdmkgJ25nbCorKCEkIzlscm5oKC4qLSgubjY=";  
+  
+function xor_encrypt($in) {  
+    $key = json_encode(array( "showpassword"=>"no", "bgcolor"=>"#ffffff"));  
+    $text = $in;  
+    $outText = '';  
+  
+    // Iterate through each character  
+    for($i=0;$i<strlen($text);$i++) {  
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];  
+    }  
+  
+    return $outText;  
+}  
+  
+echo xor_encrypt(base64_decode($cookie));  
+  
+?>  
