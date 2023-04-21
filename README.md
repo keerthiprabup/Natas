@@ -150,9 +150,7 @@ URL:      http://natas11.natas.labs.overthewire.org
 We get that the cookies were encryted using xor cipher and the algorithm of the encryption was mentioned in the source code.
 
 The encrypted cookie can be found at the application->cookie options in the inspect option.
-The code for decrypting the key:
-<?php  
-  
+The code for decrypting the key:  
 $cookie = "MGw7JCQ5OC04PT8jOSpqdmkgJ25nbCorKCEkIzlscm5oKC4qLSgubjY=";  
   
 function xor_encrypt($in) {  
@@ -170,4 +168,4 @@ function xor_encrypt($in) {
   
 echo xor_encrypt(base64_decode($cookie));  
   
-?>  
+
