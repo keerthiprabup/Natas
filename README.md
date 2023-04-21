@@ -192,12 +192,13 @@ We got the password!!
 ## Natas 12
 Username: natas12
 Password: YWqo0pjpcXzSIl5NMAVxg12QxeC1w9QG
-URL:      http://natas11.natas.labs.overthewire.org
+URL:      http://natas12.natas.labs.overthewire.org
 
 By observing the website and the source code, we can upload a file to the backend and excecute commands by scripting inside the file.
 As it is looking for jpg, we are going to make a jpg file to upload.
 
 We need to store the command: <?php echo system("cat /etc/natas_webpass/natas13"); ?> inside the file.
+Here we try to access the passwd file in the web server.
 To input the file as a php excecutable file we change the extension from jpg to php on the inspect tab filename=suhgvsdfg.jpg.
 
 Uploading the file redirects to a hyperlink following password.
@@ -205,3 +206,15 @@ Uploading the file redirects to a hyperlink following password.
 ## Natas 13
 Username: natas13
 Password: lW3jYRI02ZKDBb8VtQBU1f6eDRo6WEj9
+URL:      http://natas13.natas.labs.overthewire.org
+
+This challenge is same as the last challenge, but we have some conditions to upload the file.
+we need a file showing its signature to be a jpg file.
+
+For that we add the signature as the hex values FF D8 FF DB in the firstln of the file using hexeditor.
+
+After changing the hex value will result in password!!
+
+## Natas 14
+Username: natas14
+Password: qPazSJBmrmU7UQJv17MHk1PGC4DxZMEP
