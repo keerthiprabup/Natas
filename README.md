@@ -43,4 +43,12 @@ The final path would be like: _http://natas3.natas.labs.overthewire.org/s3cr3t/u
 ## Natas 4
 Username: natas4
 Password: tKOcJIbzM4lTs8hbCmzn5Zr4434fGZQm
+URL:      http://natas3.natas.labs.overthewire.org
+
+Here the website mentioned that the website _http://natas5.natas.labs.overthewire.org/_ should refer the login of the natas4 site to get the website.
+I used burpe suite to intercept the request to set the referer.
+For that open the burpe suite and go with capturing the request in proxy and intercept the requests.
+Add a line _Referer:_ _http://natas5.natas.labs.overthewire.org/_ and forward the request.
+Swipe on to the browser.
+Hurray!! we got the pass.
 
