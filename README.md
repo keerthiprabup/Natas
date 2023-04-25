@@ -172,7 +172,7 @@ After getting the key, encode the cookie with the key using the program:
     
     $data = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");  
     function xor_encrypt($in) {  
-        $key = 'qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq';  
+        $key = '';  
         $text = $in;  
         $outText = '';  
   
