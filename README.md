@@ -236,7 +236,7 @@ We got the pass!!
 ## Natas 15
 Username: natas15
 Password: TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB
-URL:      http://natas14.natas.labs.overthewire.org
+URL:      http://natas15.natas.labs.overthewire.org
 
 We are going to do blind SQl injection in the website to get the password.
 
